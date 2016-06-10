@@ -7,7 +7,7 @@ import java.util.*;
 import javax.jdo.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
-
+ 
 public class AddLinkDataServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
  
@@ -25,9 +25,9 @@ public class AddLinkDataServlet extends HttpServlet {
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String title = req.getParameter("title");
-        int title2 = Integer.parseInt(title);
-        String comment = req.getParameter("comment");
-        LinkData data = new LinkData(title2,comment);
+        String url = req.getParameter("url");
+        Date date = Calendar.getInstance().getTime();
+        LinkData data = new LinkData(title,url,date);
         PersistenceManagerFactory factory = PMF.get();
         PersistenceManager manager = factory.getPersistenceManager();
         try {

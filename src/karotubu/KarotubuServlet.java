@@ -4,9 +4,7 @@ import java.util.*;
  
 import javax.jdo.*;
 import javax.servlet.http.*;
-import java.io.IOException;
-import javax.servlet.http.*;
-
+ 
 @SuppressWarnings("serial")
 public class KarotubuServlet extends HttpServlet {
     public void doGet(HttpServletRequest req,
@@ -35,8 +33,8 @@ public class KarotubuServlet extends HttpServlet {
         String res = "[";
         if (list != null){
             for(LinkData data:list){
-                res += "{id:" + data.getId() +  "',title:'" +
-                    data.getTitle() +"',comment:'" + data.getComment() + "'},";
+                res += "{id:" + data.getId() + ",url:'" + data.getUrl() + "',title:'" +
+                    data.getTitle() + "',date:'" + data.getDatetime() + "'},";
             }
         }
         res += "]";

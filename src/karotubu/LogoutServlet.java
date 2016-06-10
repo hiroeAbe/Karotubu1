@@ -18,15 +18,22 @@ public class LogoutServlet extends HttpServlet {
 
     String thisUrl = req.getRequestURI();
 
-    resp.setContentType("text/html");
+    resp.setContentType("text/html;charset=utf-8");
     if (req.getUserPrincipal() != null) {
-      resp.getWriter().println("<p>Hello, "
+      resp.getWriter().println("<p>Logout, "
           + req.getUserPrincipal().getName()
-          + "!  You can" +"<a href="
+          + "横をクリック!" +"<a href="
           + userService.createLogoutURL(thisUrl)
-          + ">sign out</a>.</p>");
+          + ">logout</a>.</p>");
+    }else {
+        resp.getWriter().println("<p>Please "+"<a href="
+                + "index.html"
+                + ">トップページへ</a>.</p>");
     }
+    
+    
   }
+  
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {

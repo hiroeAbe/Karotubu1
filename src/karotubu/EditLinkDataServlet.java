@@ -1,6 +1,5 @@
 package karotubu;
 
-
 import java.io.IOException;
 import java.util.*;
  
@@ -25,14 +24,14 @@ public class EditLinkDataServlet extends HttpServlet {
             throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         long id = Long.parseLong(req.getParameter("id"));
-        String title = req.getParameter("title");      
-        int title2 = Integer.parseInt(title);
-        String comment = req.getParameter("comment");
+        String title = req.getParameter("title");
+        String url = req.getParameter("url");
         PersistenceManagerFactory factory = PMF.get();
         PersistenceManager manager = factory.getPersistenceManager();
         LinkData data = (LinkData)manager.getObjectById(LinkData.class,id);
-        data.setTitle(title2);
-        data.setComment(comment);
+        data.setTitle(title);
+        data.setUrl(url);
+       
         manager.close();
         resp.sendRedirect("/main.html");
     }
