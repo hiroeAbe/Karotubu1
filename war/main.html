@@ -1,21 +1,54 @@
-
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
+   <style type="text/css">
+<!--
+body {
+background-image: url(42.gif);
+background-repeat: repeat-x;
+background-color: #FFFFFF;
+}
+-->
+</style>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <title>カロリー広場</title>
+    <script type="text/javascript" src="lib.js"></script>
+        <script type="text/javascript">
+        <!--
+        function callback(request){
+            var json = eval(request.responseText);
+            var res = '';
+            if (json.length == 1){
+                res += '<tr><td>' + json[0].id +'</td></tr>';
+                res += '<tr><td>' + json[0].title +'</td></tr>';
+                res += '<tr><td>' + json[0].url +'</td></tr>';
+            } else {
+                for (var i = 0;i < json.length;i++){
+                    res += '<tr><td>'+json[i].date +'</td>'+'<td>'+json[i].title+'</td>'+'<td>'+json[i].url+'</td>';
+                    res += '<td><a href="edit.html?id=' + json[i].id + '">Edit</td>' ;
+                    res += '<td><a href="del.html?id=' + json[i].id + '">Delete</td></tr>';
+                }
+            }
+            var obj = document.getElementById("datatable");
+            obj.innerHTML = res;
+        }
+        //-->
+        </script>
   </head>
-
-  <body bgcolor="#ffa07a">
-    <font face="メイリオ">
-    <body onload="getData(null);">
-    <h1>現在のカロリー</h1>
+  <body onload="getData(null);">
+  <br>
+  <br>
+   <font face="メイリオ">
+    <h1>カロリーの表示</h1>
+     
     <table id="datatable" border="1">
       <tr>
-        <td>wait...</td>
+        <td>まだなにも入ってないよ...</td>
       </tr>
     </table>
-	<br>
-    <div><a href="add.html">カロリーを入力</a></div>
-</body>
-</html>
+    <br>
+    <div><a href="add.html">カロリー新規追加</a></div>
+    <form action="/logout" method="get">          
+            <input type="submit" value="ログアウト"><br>
+        </form>
+  </body>

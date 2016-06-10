@@ -1,8 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
     <head>
+     <style type="text/css">
+<!--
+body {
+background-image: url(42.gif);
+background-repeat: repeat-x;
+background-color: #FFFFFF;
+}
+-->
+</style>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>LinkDataの削除</title>
+        <title>カロリー消しちゃえ</title>
     <script type="text/javascript" src="lib.js"></script>
         <script type="text/javascript">
         <!--
@@ -16,7 +25,7 @@
             var data = arr[0];
             var msg = '<table border="1"><tr><td>' + data.title + '</td></tr>';
             msg += '<tr><td>' + data.url + '</td></tr>';
-            msg += '<tr><td>' + data.comment + '</td></tr></table>';
+            msg +='</td></tr></table>';
             document.getElementById("data").innerHTML = msg;
             document.getElementById("id").value = data.id;
         }
@@ -24,8 +33,11 @@
         </script>
     </head>
     <body onload="initial();">
-        <h1>データの削除</h1>
-        <div>以下のデータを削除しますか？</div>
+    <br>
+    <br>
+     <font face="メイリオ">
+        <h1>カロリーの削除</h1>
+        <div>以下のカロリーを本当に削除しますか？</div>
         <div id="data"></div>
         <form method="post" action="del">
             <input type="hidden" id="id" name="id">

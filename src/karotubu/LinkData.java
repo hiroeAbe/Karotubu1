@@ -12,24 +12,22 @@ public class LinkData {
     private Long id;
      
     @Persistent
-    private int title;
+    private String title;
      
-    //@Persistent
-    //private String url;
+    @Persistent
+    private String url;
      
     @Persistent
     private String comment;
      
-    //@Persistent
-    //private Date datetime;
+    @Persistent
+    private Date datetime;
  
-    public LinkData(int title, String comment) {
+    public LinkData(String title, String url, Date datetime) {
         super();
-        //int title2 = Integer.parseInt(title);
         this.title = title;
-        //this.url = url;
-        this.comment = comment;
-        //this.datetime = datetime;
+        this.url = url;
+        this.datetime = datetime;
     }
  
     public Long getId() {
@@ -40,35 +38,29 @@ public class LinkData {
         this.id = id;
     }
  
-    public int getTitle() {
+    public String getTitle() {
         return title;
     }
  
-    public void setTitle(int title) {
+    public void setTitle(String title) {
         this.title = title;
     }
  
-    /*public String getUrl() {
+    public String getUrl() {
         return url;
     }
  
     public void setUrl(String url) {
         this.url = url;
-    }*/
- 
-    public String getComment() {
-        return comment;
     }
  
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
+   
  
-    /*public Date getDatetime() {
+    public Date getDatetime() {
         return datetime;
     }
  
     public void setDatetime(Date datetime) {
         this.datetime = datetime;
-    }*/
+    }
 }
