@@ -37,11 +37,21 @@ background-color: #FFFFFF;
     <br>
      <font face="メイリオ">
         <h1>カロリーの削除</h1>
+        <style>
+      table {
+          border-collapse: collapse;
+      }
+      td{
+          border: solid 1px;
+	      padding: 0.5em;
+      }
+    </style>
         <div>以下のカロリーを本当に削除しますか？</div>
         <div id="data"></div>
         <form method="post" action="del">
             <input type="hidden" id="id" name="id">
             <input type="submit" value="削除">
         </form>
+        <img src="cry_girl.png" alt="" />
         </body>
 </html>
