@@ -19,9 +19,9 @@ background-color: #FFFFFF;
             var json = eval(request.responseText);
             var res = '';
             if (json.length == 1){
-                res += '<tr><td>' + json[0].id +'</td></tr>';
-                res += '<tr><td>' + json[0].title +'</td></tr>';
-                res += '<tr><td>' + json[0].url +'</td></tr>';
+                res += '<tr><td>'+json[0].date +'</td>'+'<td>'+json[0].title+'</td>'+'<td>'+json[0].url+'</td>';
+                    res += '<td><a href="edit.html?id=' + json[0].id + '">Edit</td>' ;
+                    res += '<td><a href="del.html?id=' + json[0].id + '">Delete</td></tr>';
             } else {
                 for (var i = 0;i < json.length;i++){
                     res += '<tr><td>'+json[i].date +'</td>'+'<td>'+json[i].title+'</td>'+'<td>'+json[i].url+'</td>';
@@ -40,7 +40,15 @@ background-color: #FFFFFF;
   <br>
    <font face="メイリオ">
     <h1>カロリーの表示</h1>
-     
+     <style>
+      table {
+          border-collapse: collapse;
+      }
+      td{
+          border: solid 1px;
+	      padding: 0.5em;
+      }
+    </style>
     <table id="datatable" border="1">
       <tr>
         <td>まだなにも入ってないよ...</td>
@@ -51,4 +59,5 @@ background-color: #FFFFFF;
     <form action="/logout" method="get">          
             <input type="submit" value="ログアウト"><br>
         </form>
+     <img src="sweets_yaki_donut.png" alt="" />   
   </body>
